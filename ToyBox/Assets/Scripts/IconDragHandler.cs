@@ -19,6 +19,7 @@ public class IconDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
  public void OnBeginDrag(PointerEventData eventData)
  {
+    //Disable camera script to prevent dragdrop to affect camera
    EventSystem.current.GetComponent<CameraDragMove>().enabled = false;
 
     startPosition = transform.position;
@@ -34,6 +35,7 @@ public class IconDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
  public void OnEndDrag(PointerEventData eventData)
  {
+    // unable camera dragdrop script
    EventSystem.current.GetComponent<CameraDragMove>().enabled = true;
 
    transform.position = startPosition;
