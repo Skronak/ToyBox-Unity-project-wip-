@@ -24,6 +24,7 @@ public class IconDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     startPosition = transform.position;
     previewPrefab = Instantiate(previewImage, Camera.main.ScreenToWorldPoint(transform.position), transform.rotation);
+    previewPrefab.transform.localScale = transform.localScale;
     groundPosition = Camera.main.ScreenToWorldPoint(Vector3.zero);
  }
 

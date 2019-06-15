@@ -18,14 +18,13 @@ public class DragDrop : MonoBehaviour
     void Update()
     {
         if (selected) {
-            Debug.Log("SELECTED");
             Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(cursorPos.x, cursorPos.y, transform.position.z);
             previewGameObjectCopy.transform.position = new Vector2(cursorPos.x, groundPosition.y);
 //            previewImage.transform.localScale=new Vector3(transform.localScale.x, transform.localScale.y,0);
 
             if (Input.GetMouseButtonUp(0)) {
-                gameObject.layer=originLayer;
+               gameObject.layer=originLayer;
                 selected = false;
                 EventSystem.current.GetComponent<CameraDragMove>().enabled = true;
                // transform.position = new Vector3(previewImage.transform.position.x, previewImage.transform.position.y, previewGameObject.transform.position.z);
@@ -35,17 +34,16 @@ public class DragDrop : MonoBehaviour
     }
 
     void OnMouseOver(){
-        Debug.Log("over");
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("over");
             selected = true;
             EventSystem.current.GetComponent<CameraDragMove>().enabled = false;
             originLayer = gameObject.layer;
-            gameObject.layer=9;
-
+            gameObject.layer=11; // ignoreAllCollision layer
+            
             groundPosition = Camera.main.ScreenToWorldPoint(Vector3.zero);
             groundPosition.y=groundPosition.y+1;
             previewGameObjectCopy = Instantiate(previewGameObjectRef, transform.position, transform.rotation);
+            previewGameObjectCopy.transform.localScale = previewGameObjectRef.transform.localScale;
         }
     }
 }
