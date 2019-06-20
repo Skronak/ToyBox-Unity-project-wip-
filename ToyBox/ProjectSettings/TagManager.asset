@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Preview
+  - waterTrigger
+  - borderTrigger
+  - stopTrigger
   layers:
   - Default
   - TransparentFX

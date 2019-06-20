@@ -159,6 +159,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   isWalking: 1
-  walkTime: 5
   waitTime: 1
   isWalkingRight: 1
