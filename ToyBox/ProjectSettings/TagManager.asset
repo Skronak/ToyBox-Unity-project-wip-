@@ -8,6 +8,7 @@ TagManager:
   - waterTrigger
   - borderTrigger
   - stopTrigger
+  - runTrigger
   layers:
   - Default
   - TransparentFX

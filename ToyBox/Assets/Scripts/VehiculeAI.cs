@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VehiculeAI : MonoBehaviour {
+public class VehiculeAI : MonoBehaviour
+{
+    public float moveSpeed;
 
-	public 	float moveSpeed;
+    public bool isWalking;
+    public bool isWalkingRight;
+    private Rigidbody2D myRigidBody;
 
-	private Rigidbody2D myRigidBody;
+    // Use this for initialization
+    void Start()
+    {
+        myRigidBody = GetComponent<Rigidbody2D>();
+    }
 
-	public bool isWalking;
-	public float waitTime;
-	private float waitCounter;
-	public bool isWalkingRight;
-
-	// Use this for initialization
-	void Start () {
-		myRigidBody = GetComponent<Rigidbody2D>();
-		waitCounter = waitTime;
-	}
-
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         if (isWalking)
         {
             if (isWalkingRight)
@@ -32,24 +30,15 @@ public class VehiculeAI : MonoBehaviour {
                 myRigidBody.velocity = new Vector2(-moveSpeed, 0);
             }
         }
-        else
-        {
-            waitCounter -= Time.deltaTime;
-            myRigidBody.velocity = Vector2.zero;
-            if (waitCounter < 0)
-            {
-                isWalking = true;
-                waitCounter = waitTime;
-
-            }
-        }
-	}
+    }
 
 
-	//Detect collision with trigger element   
- 	private void OnTriggerEnter2D(Collider2D other) {
+    //Detect collision with trigger element   
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         Debug.Log("vehicule");
-        switch (other.gameObject.tag){
+        switch (other.gameObject.tag)
+        {
             case "stopTrigger":
                 if (!isWalkingRight)
                 {
@@ -61,21 +50,42 @@ public class VehiculeAI : MonoBehaviour {
                 break;
         }
     }
-	
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "runTrigger":
+                if (!isWalkingRight)
+                {
+                    Run();
+                }
+                break;
+        }
+    }
+
     private void Stop()
     {
         isWalking = false;
-        waitCounter = waitTime;
     }
 
-	// Change Vehicule direction
-	public void ChangeDirection() {
-		isWalkingRight = !isWalkingRight;
-		isWalking = true;
-		if (isWalkingRight) {
-             transform.localRotation = Quaternion.Euler(0, 0, 0);
-         } else {
-             transform.localRotation = Quaternion.Euler(0, 180, 0);
-         }
-	}
+    private void Run()
+    {
+        isWalking = true;
+    }
+
+    // Change Vehicule direction
+    public void ChangeDirection()
+    {
+        isWalkingRight = !isWalkingRight;
+        isWalking = true;
+        if (isWalkingRight)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
 }
