@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7448168195635635092}
   m_Layer: 10
   m_Name: tree2
-  m_TagString: Untagged
+  m_TagString: prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewGameObjectRef: {fileID: 3031917054848351884, guid: 4cf6517546d60bf4a9b4547ec36b8321,
     type: 3}
-  tolerance: 2
 --- !u!1 &7448168197027197494
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,11 +228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6303510645503319455}
     m_Modifications:
-    - target: {fileID: 1896444399159648256, guid: d84e085026a30584eb1c175cb9c18b11,
-        type: 3}
-      propertyPath: m_Name
-      value: TreeUpgradeParticle
-      objectReference: {fileID: 0}
     - target: {fileID: 1896444399159648261, guid: d84e085026a30584eb1c175cb9c18b11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,6 +282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896444399159648256, guid: d84e085026a30584eb1c175cb9c18b11,
+        type: 3}
+      propertyPath: m_Name
+      value: TreeUpgradeParticle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84e085026a30584eb1c175cb9c18b11, type: 3}

@@ -9,6 +9,7 @@ TagManager:
   - borderTrigger
   - stopTrigger
   - runTrigger
+  - prefab
   layers:
   - Default
   - TransparentFX

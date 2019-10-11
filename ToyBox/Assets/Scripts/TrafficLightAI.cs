@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TrafficLightAI : MonoBehaviour
 {
-    public Sprite trafficLightRed;
+    public Sprite redLightSprite;
 
-    public Sprite trafficLightGreen;
+    public Sprite greenLightSprite;
+
+    public Sprite yellowLightSprite;
 
     public float waitTimer;
 
@@ -22,7 +24,7 @@ public class TrafficLightAI : MonoBehaviour
         parentGameObject = this.transform.parent.gameObject;
         spriteRenderer = parentGameObject.GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
-            spriteRenderer.sprite = trafficLightRed; // set the sprite to sprite1
+            spriteRenderer.sprite = redLightSprite; // set the sprite to sprite1
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,17 +43,24 @@ public class TrafficLightAI : MonoBehaviour
     }
 
 
+    /**
+     * Switch between red/yellow/green light
+     */
     void ChangeSprite()
     {
-        if (spriteRenderer.sprite == trafficLightRed)
+        if (spriteRenderer.sprite == redLightSprite)
         {
-            spriteRenderer.sprite = trafficLightGreen;
+            spriteRenderer.sprite = greenLightSprite;
             gameObject.tag = "runTrigger";
         }
-        else
+        else if (spriteRenderer.sprite == yellowLightSprite)
         {
-            spriteRenderer.sprite = trafficLightRed;
+            spriteRenderer.sprite = redLightSprite;
             gameObject.tag="stopTrigger";
+        } else
+        {
+            spriteRenderer.sprite = yellowLightSprite;
+            gameObject.tag = "runTrigger";
         }
     }
 }

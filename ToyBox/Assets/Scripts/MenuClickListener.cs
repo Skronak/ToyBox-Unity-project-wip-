@@ -15,7 +15,6 @@ public class MenuClickListener : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("click");
         }
     }
 }

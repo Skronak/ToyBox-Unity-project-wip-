@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 1495200986}
   m_Layer: 10
   m_Name: tree0
-  m_TagString: Untagged
+  m_TagString: prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,4 +220,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewGameObjectRef: {fileID: 3031917054848351884, guid: 4cf6517546d60bf4a9b4547ec36b8321,
     type: 3}
-  tolerance: 2

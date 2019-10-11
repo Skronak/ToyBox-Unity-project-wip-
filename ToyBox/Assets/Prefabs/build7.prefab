@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6204860588618590163}
   - component: {fileID: 6688601124927681542}
   - component: {fileID: 4108303859477629019}
+  - component: {fileID: 3902050886935030352}
   m_Layer: 10
   m_Name: build7
-  m_TagString: Untagged
+  m_TagString: prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +145,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewGameObjectRef: {fileID: 3031917054848351884, guid: 4cf6517546d60bf4a9b4547ec36b8321,
     type: 3}
+--- !u!114 &3902050886935030352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189452977430119946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6aebac31964aca4c84f4b5076eda5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrian: {fileID: 4158426559449076683, guid: d2124de67fbdaf54489b9615c38ba77d,
+    type: 3}
+  nbPedestrian: 2
+  delay: 2

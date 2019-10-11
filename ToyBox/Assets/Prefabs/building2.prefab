@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6831876061318836298}
   m_Layer: 10
   m_Name: building2
-  m_TagString: Untagged
+  m_TagString: prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 9.57715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 6.37, y: 9.43}
     newSize: {x: 6.37, y: 19.27}
     adaptiveTilingThreshold: 0.5

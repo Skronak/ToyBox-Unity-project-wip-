@@ -27,14 +27,15 @@ public class DragDrop : MonoBehaviour
                gameObject.layer=originLayer;
                 selected = false;
                 EventSystem.current.GetComponent<CameraDragMove>().enabled = true;
+                EventSystem.current.GetComponent<AutoAreaExtender>().evaluateScenebounds();
                // transform.position = new Vector3(previewImage.transform.position.x, previewImage.transform.position.y, previewGameObject.transform.position.z);
                 Destroy(previewGameObjectCopy);
             }
         }
     }
 
-    void OnMouseOver(){
-        if (Input.GetMouseButtonDown(0)) {
+    void OnMouseOver() {
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             selected = true;
             EventSystem.current.GetComponent<CameraDragMove>().enabled = false;
             originLayer = gameObject.layer;
