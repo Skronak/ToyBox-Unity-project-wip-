@@ -37,17 +37,13 @@ public class PedestrianAI : MonoBehaviour
     //Detect collision with trigger element   
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Pedstrian");
         switch (other.gameObject.tag)
         {
-            case "stopTrigger":
-                if (!isWalkingRight)
-                {
-                    Stop();
-                }
-                break;
             case "borderTrigger":
                 ChangeDirection();
+                break;
+            case "talkTrigger":
+                Talk(other);
                 break;
         }
     }
@@ -79,6 +75,28 @@ public class PedestrianAI : MonoBehaviour
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
+    }
+
+    private void Talk(Collider2D other)
+    {
+//        if (Random.Range(0, 5) == 1)
+            if (true)
+            {
+                other.gameObject.GetComponent<PedestrianAI>().WaitForEndTalk();
+            StartCoroutine(EndTalk());
+        }
+    }
+
+    public void WaitForEndTalk()
+    {
+
+        isWalking = false;
+    }
+
+    public IEnumerator EndTalk()
+    {
+        yield return new WaitForSecondsRealtime(4);
+        isWalking = true;
     }
 }
 
